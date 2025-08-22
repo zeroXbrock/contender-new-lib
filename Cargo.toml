@@ -1,0 +1,11 @@
+[package]
+name = "contender-new-lib"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+alloy-node-bindings = "1.0.25"
+contender_core = { path = "../../contender/crates/core" }
+contender_testfile = { path = "../../contender/crates/testfile" }
+contender_sqlite = { path = "../../contender/crates/sqlite_db" }
+tokio = { version = "1.47.1", features = ["rt-multi-thread"] }
