@@ -2013,7 +2013,6 @@ checksum = "7c74b8349d32d297c9134b8c88677813a227df8f779daa29bfc29c183fe3dca6"
 name = "contender-new-lib"
 version = "0.1.0"
 dependencies = [
- "alloy-node-bindings",
  "contender_core",
  "contender_engine_provider",
  "contender_report",

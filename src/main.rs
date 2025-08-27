@@ -1,8 +1,8 @@
-use alloy_node_bindings::WEI_IN_ETHER;
 use contender_core::{
     CancellationToken, Contender, ContenderCtx, RunOpts,
     alloy::{
         network::AnyNetwork,
+        node_bindings::WEI_IN_ETHER,
         providers::{DynProvider, ProviderBuilder},
     },
     generator::{
