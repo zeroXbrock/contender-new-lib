@@ -1,10 +1,6 @@
 use contender_core::{
-    CancellationToken, Contender, ContenderCtx, RunOpts,
-    alloy::{
-        network::AnyNetwork,
-        node_bindings::WEI_IN_ETHER,
-        providers::{DynProvider, ProviderBuilder},
-    },
+    Contender, ContenderCtx, RunOpts,
+    alloy::node_bindings::WEI_IN_ETHER,
     generator::{
         FunctionCallDefinition, RandSeed,
         agent_pools::{AgentPools, AgentSpec},
@@ -14,7 +10,7 @@ use contender_core::{
 };
 use contender_report::command::report;
 use contender_testfile::TestConfig;
-use std::{sync::Arc, time::Duration};
+use std::time::Duration;
 
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
@@ -36,18 +32,10 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         .build();
     let scenario = ctx.build_scenario().await?;
 
-    let provider = DynProvider::new(
-        ProviderBuilder::new()
-            .network::<AnyNetwork>()
-            .connect_http(ctx.rpc_url.to_owned()),
-    );
     let mut contender = Contender::new(ctx);
 
-    // allows us to cancel result collection whenever we call `cancel_token.cancel()`
-    let cancel_token: CancellationToken = Default::default();
-
     // LogCallback saves tx data to DB
-    let callback = LogCallback::new(Arc::new(provider), None, false, cancel_token);
+    let callback = LogCallback::new(scenario.rpc_client);
 
     // run spammer
     contender

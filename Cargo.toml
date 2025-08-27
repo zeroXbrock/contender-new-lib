@@ -4,9 +4,14 @@ version = "0.1.0"
 edition = "2024"
 
 [dependencies]
-contender_core = { git = "https://github.com/flashbots/contender", rev = "05fc7665555f8f5becbb4980a4db378de9c5aad5" }
-contender_report = { git = "https://github.com/flashbots/contender", rev = "05fc7665555f8f5becbb4980a4db378de9c5aad5" }
-contender_testfile = { git = "https://github.com/flashbots/contender", rev = "05fc7665555f8f5becbb4980a4db378de9c5aad5" }
-contender_engine_provider = { git = "https://github.com/flashbots/contender", rev = "05fc7665555f8f5becbb4980a4db378de9c5aad5" }
-contender_sqlite = { git = "https://github.com/flashbots/contender", rev = "05fc7665555f8f5becbb4980a4db378de9c5aad5" }
+# contender_core = { git = "https://github.com/flashbots/contender", rev = "05fc7665555f8f5becbb4980a4db378de9c5aad5" }
+# contender_report = { git = "https://github.com/flashbots/contender", rev = "05fc7665555f8f5becbb4980a4db378de9c5aad5" }
+# contender_testfile = { git = "https://github.com/flashbots/contender", rev = "05fc7665555f8f5becbb4980a4db378de9c5aad5" }
+# contender_engine_provider = { git = "https://github.com/flashbots/contender", rev = "05fc7665555f8f5becbb4980a4db378de9c5aad5" }
+# contender_sqlite = { git = "https://github.com/flashbots/contender", rev = "05fc7665555f8f5becbb4980a4db378de9c5aad5" }
+contender_core = { path = "../../contender/crates/core" }
+contender_report = { path = "../../contender/crates/report" }
+contender_testfile = { path = "../../contender/crates/testfile" }
+contender_engine_provider = { path = "../../contender/crates/engine_provider" }
+contender_sqlite = { path = "../../contender/crates/sqlite_db" }
 tokio = { version = "1.47.1", features = ["rt-multi-thread"] }
